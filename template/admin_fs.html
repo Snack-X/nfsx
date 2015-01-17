@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<title>Admin - File System</title>
+<link rel="stylesheet" href="/static/normalize.css">
+<link rel="stylesheet" href="/static/global.css">
+<link rel="stylesheet" href="/static/admin.css">
+<link rel="stylesheet" href="/static/jstree/jstree.min.css">
+<script src="/static/jquery-2.1.3.min.js"></script>
+<script src="/static/jstree/jstree.min.js"></script>
+<script>var accounts = {{ accounts|json|safe }};</script>
+<script src="/static/admin_fs.js"></script>
+</head>
+<body class="fs">
+
+<h1>Admin - File System</h1>
+
+<h4 class="nav">
+<a href="/">Home</a>
+</h4>
+<hr>
+
+<div class="panels clearfix">
+	<div class="panels-container">
+		<div class="panel entry-list">
+			<h3>Entry list</h3>
+			<div class="js-tree-vfs"></div>
+			<button class="button js-btn-edit-entry" style="display:none">Edit entry</button>
+			<button class="button js-btn-new-entry" style="display:none">New entry</button>
+		</div>
+		<div class="panel form">
+			<h3>Entry information</h3>
+			<form action="/admin/fs/save" method="post" class="js-form">
+				<div class="row">
+					<label>Path</label>
+					<div class="input">
+						<span class="js-span-path"></span>
+						<input type="hidden" id="path" name="path" class="js-input-path">
+					</div>
+				</div>
+
+				<div class="row js-row-conditional js-show-create">
+					<label for="name">Name</label>
+					<div class="input">
+						<input type="text" id="name" name="name" class="js-input-name">
+					</div>
+				</div>
+
+				<div class="row js-row-conditional js-show-create">
+					<label for="type">Type</label>
+					<div class="input">
+						<input type="radio" name="type" value="real" class="js-input-type">Real<br>
+						<input type="radio" name="type" value="vdir" class="js-input-type" selected>Virtual Directory<br>
+					</div>
+				</div>
+
+				<div class="row js-row-conditional js-show-real js-show-create-real">
+					<label for="location">Location</label>
+					<div class="input">
+						<input type="text" id="location" name="location" class="js-input-location">
+						<button type="button" class="button js-btn-navigate" style="margin-top:5px">Navigate</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<label>Permission</label>
+					<div class="input js-list-permission"></div>
+				</div>
+
+				<div class="row">
+					<button type="button" class="button js-btn-submit">Save</button>
+				</div>
+
+				<div class="row js-row-conditional js-show-vdir js-show-real">
+					<button type="button" class="button js-btn-remove-entry btn-red">Remove entry</button>
+				</div>
+
+				<div class="row">
+					<button type="button" class="button js-btn-cancel-form btn-gray">Cancel</button>
+				</div>
+			</form>
+		</div>
+		<div class="panel navigator">
+			<h3>Navigate</h3>
+			<button class="button js-btn-use" style="display:none"></button>
+			<button class="button btn-gray js-btn-cancel-navigate">Cancel</button>
+			<div class="js-tree-local"></div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.html" %}
+</body>
+</html>

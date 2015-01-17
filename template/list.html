@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<title>Index of {{ directory }}</title>
+<link rel="stylesheet" href="/static/normalize.css">
+<link rel="stylesheet" href="/static/global.css">
+<link rel="stylesheet" href="/static/list.css">
+</head>
+<body>
+
+<h1>Index of {{ directory }}</h1>
+
+<h4 class="nav">
+{% if loggedIn %}
+	<a href="/account/logout">Logout</a>
+{% else %}
+	<a href="/account/login">Login</a>
+{% endif %}
+
+{% if admin %}
+	<a href="/admin/index">Admin</a>
+{% endif %}
+
+{% if directory !== "/" %}
+	<a href="..">Parent</a><a href="/">Root</a>
+{% endif %}
+</h4>
+<hr>
+
+<table><thead><tr><th>FILE NAME</th><th>FILE SIZE</th><th>DATE</th></tr></thead><tbody>
+
+{% for entry in entries %}
+<tr>
+<td><a href="{{ entry.name }}">{{ entry.name }}</a></td>
+<td>{{ entry.size }}</td>
+<td>{{ entry.date|date("Y-m-d H:i:s") }}</td>
+</tr>
+{% endfor %}
+
+</tbody></table>
+
+{% include "footer.html" %}
+</body>
+</html>

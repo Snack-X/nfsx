@@ -1,0 +1,5 @@
+node_modules/
+
+data/config.json
+data/account.json
+data/fs.json

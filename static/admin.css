@@ -1,0 +1,36 @@
+ul{list-style-type:none;}
+ul li{margin-bottom:10px;}
+.panels{min-height:200px;margin:10px 0;overflow-x:hidden;}
+.panels-container{width:99999px;transition:margin 0.3s;}
+.panel{float:left;width:480px;padding:10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+form{width:100%;}
+.row{padding:5px 0;display:table;width:100%;}
+label{display:table-cell;padding-right:2%;width:23%;text-align:right;}
+.input{display:table-cell;width:75%;}
+input[type="text"],input[type="password"]{width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+input[type="text"].error,input[type="password"].error{border:1px solid #ff4136;padding:2px;}
+.button{padding:10px;margin:5px 0;width:100%;border:0;border-radius:3px;background:#0074d9;color:#ffffff;}
+.row .button{margin:0;}
+input[type="checkbox"],input[type="radio"]{margin:0 5px 5px 0;padding:2px;}
+input[type="checkbox"].error,input[type="radio"].error{box-shadow:0 0 1px 1px #ff4136;}
+.btn-red{background-color:#ff4136;}
+.btn-gray{background-color:#aaaaaa;}
+.account .panel.form form{display: none;}
+.fs .panel.entry-list .nfsx-vfs-jstree{margin:20px 0;}
+.fs .panel.form form{display: none;}
+[nfsx-type="dir"] a i{background-position:-260px -4px !important;}
+[nfsx-type="file"] a i{background-position:-100px -68px !important;}
+
+.load-backlog { margin: 30px 0; }
+
+.log-area .log-item { border-bottom: 1px solid #aaaaaa; font-size: 14px; line-height: 20px; }
+.log-area .log-header { font-size: 12px; color: #aaaaaa; text-align: center; }
+.log-area .log-item span { display: inline-block; vertical-align: top; }
+.log-area .log-item .type { margin: 5px; width: 10px; height: 10px; border-radius: 5px; }
+.log-area .log-item .ip { width: 120px; text-align: center; }
+.log-area .log-item .time { width: 150px; text-align: center; }
+.log-area .log-item .message { width: 670px; }
+
+.log-area .type.error { background: #ff4136; }
+.log-area .type.info { background: #ffdc00; }
+.log-area .type.log { background: #2ecc40; }

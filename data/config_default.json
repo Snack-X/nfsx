@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "port": 55555,
+  "secret": "NFSX",
+  "trustProxy": false
+}

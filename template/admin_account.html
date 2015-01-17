@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<title>Admin - Account</title>
+<link rel="stylesheet" href="/static/normalize.css">
+<link rel="stylesheet" href="/static/global.css">
+<link rel="stylesheet" href="/static/admin.css">
+<script src="/static/jquery-2.1.3.min.js"></script>
+<script src="/static/admin_account.js"></script>
+</head>
+<body class="account">
+
+<h1>Admin - Account</h1>
+
+<h4 class="nav">
+<a href="/">Home</a>
+</h4>
+<hr>
+
+<div class="panels clearfix">
+	<div class="panels-container">
+		<div class="panel account-list">
+			<h3>Account list</h3>
+			<ul>
+			{% for id in accounts %}
+				<li class="js-list-account"><a href="#">{{ id }}</a></li>
+			{% endfor %}
+			</ul>
+			<button class="button js-btn-new-account">New account</button>
+		</div>
+		<div class="panel form">
+			<h3>Account information</h3>
+			<form action="/admin/account/save" method="post" class="js-form">
+				<input type="hidden" id="orgId" name="orgId" value="" class="js-input js-input-orgId">
+				<div class="row">
+					<label for="newId">ID</label>
+					<input type="text" id="newId" name="newId" disabled class="js-input js-input-newId">
+				</div>
+				<div class="row">
+					<label for="newId">PW</label>
+					<input type="password" id="newPw" name="newPw" disabled class="js-input js-input-newPw">
+				</div>
+				<div class="row">
+					<label for="newAdmin">Admin</label>
+					<input type="checkbox" id="newAdmin" name="newAdmin" disabled class="js-input js-input-newAdmin">
+				</div>
+				<div class="row"><input class="button" type="submit" value="Save"></div>
+				<div class="row"><button type="button" class="button btn-red js-btn-remove-account">Remove account</button></div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% include "footer.html" %}
+</body>
+</html>
